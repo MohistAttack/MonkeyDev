@@ -88,11 +88,13 @@ function getSdkProperty()
 	echo "$propertyValue"
 }
 
-echo "Uninstalling MonkeyDev base, Xcode templates and framework header files..."
+echo "[!!!!!!] Uninstalling MonkeyDev base, Xcode templates and framework header files..."
 	
 #删除文件夹
 rm -rf "$MonkeyDevPath" || \
 	panic $? "Failed to remove directory: $MonkeyDevPath"
+
+echo "[!!!!!!] Directories removed!"
 
 #移除模块符号链接
 userDevDir="$userHome/Library/Developer"
@@ -102,6 +104,8 @@ symlinkPath="$userTemplatesDir/MonkeyDev"
 rm -f "$symlinkPath" || \
 	panic $? "Failed to remove file: $symlinkPath"
 		
+echo "[!!!!!!] Symlinks removed!"
+
 #移除profile环境变量
 for f in "${bashProfileFiles[@]}"; do
 	if [[ -f "$f" ]]; then
@@ -117,11 +121,15 @@ if [[ $userBashProfileFile != "" ]]; then
 	sed -i "" "s/^export PATH=.*\$MonkeyDevPath\\/bin:.*$//g" "$userBashProfileFile"
 fi
 
+echo "[!!!!!!] Sth in profiles removed!"
+
 iosSdkPlatformPath=`getSdkProperty iphoneos PlatformPath`
 
 specificationFile=$(cd $iosSdkPlatformPath/../../.. && pwd)/PlugIns/IDEiOSSupportCore.ideplugin/Contents/Resources/Embedded-Device.xcspec
 
 #还原文件
 restoreFile "$specificationFile"
+
+echo "[!!!!!!] sth changed in ios sdk restored!"
 
 exit 0
