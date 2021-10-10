@@ -1,3 +1,7 @@
+# 安装
+sudo sh -c ./bin/md-install
+
+
 # MonkeyDev
 
 A modified version of iOSOpenDev
