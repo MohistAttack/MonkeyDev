@@ -343,7 +343,7 @@ addToFileIfMissing "$userBashProfileFile" "^(export)? *MonkeyDevPath=.*" "export
 addToFileIfMissing "$userBashProfileFile" "^(export)? *MonkeyDevDeviceIP=.*" "export MonkeyDevDeviceIP="
 addToFileIfMissing "$userBashProfileFile" "^(export)? *PATH=.*(\\\$MonkeyDevPath\\/bin|${MonkeyDevPath//\//\\/}\\/bin).*" "export PATH=$MonkeyDevPath/bin:\$PATH"
 
-# TODO: 目前发现塞的配置最后有问题，暂时不做这个
+# TODO: 目前发现塞的配置最后有问题，暂时不做这个，一定要做的话，参考 https://blog.csdn.net/jian274622701/article/details/120121748
 # #支持iphoneos command line tools
 # iosSdkPlatformPath=`getSdkProperty iphoneos PlatformPath`
 # macosSdkPlatformPath=`getSdkProperty macosx PlatformPath`
