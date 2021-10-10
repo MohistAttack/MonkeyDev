@@ -1,6 +1,7 @@
 # 安装
 git clone xxx
 sudo mv ./MonkeyDev /opt/
+cd /opt/MonkeyDev
 sudo sh -c ./bin/md-install
 
 

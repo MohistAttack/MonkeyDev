@@ -376,6 +376,6 @@ addToFileIfMissing "$userBashProfileFile" "^(export)? *PATH=.*(\\\$MonkeyDevPath
 # if [[ $hasProductTypeForCommandLineTool != "true" ]]; then
 # 	toolDict=`readXcodeSpecificationById "$productTypesForMacOSXPath" "com.apple.product-type.tool"`
 # 	writeDictToSpecification "$specificationFile" "$toolDict"
-fi
-
+# fi
+echo "Done"
 exit 0
